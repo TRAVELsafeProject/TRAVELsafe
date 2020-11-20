@@ -13,6 +13,8 @@ const passport      = require('passport')
 const localStrategy = require('passport-local').Strategy
 const session       = require('express-session')
 const flash         = require('connect-flash')
+const fetch         = require('node-fetch');
+
 
 const User = require('./models/User')
 const Comment = require('./models/Comment')
@@ -38,6 +40,22 @@ const app_name = require('./package.json').name;
 const debug = require('debug')(`${app_name}:${path.basename(__filename).split('.')[0]}`);
 
 const app = express();
+
+// Configuración API externa
+
+(async () => {
+  const response = await fetch(
+    'https://parseapi.back4app.com/classes/Continentscountriescities_City?limit=10&order=country,name&include=country&keys=name,country,country.name,population,cityId',
+    {
+      headers: {
+        'X-Parse-Application-Id': '8lFUxW5GUgxhP7mgC767mDx8bt8yUm8iZYXMxziq', // This is your app's application id
+        'X-Parse-REST-API-Key': 'rmUiExtQ0rJjOwm825bGnuBN1SfxZZjmirTmyIDv', // This is your app's REST API key
+      }
+    }
+  );
+  const data = await response.json(); // Here you have the data that you need
+  console.log(JSON.stringify(data, null, 2));
+})();
 
 // Middleware Setup
 app.use(logger('dev'));
