@@ -76,4 +76,6 @@ router.get('/my-profile', checkAuth, (req, res, next) => {
   res.render('Users/myProfile', {user: req.user.email})
 })
 
+//
+
 module.exports = router;
