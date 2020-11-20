@@ -27,5 +27,21 @@
   },
   "devDependencies": {
     "nodemon": "^1.12.1"
-  }
+  },
+  "main": "app.js",
+  "bin": {
+    "travelsafe": "countrySeeds.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TRAVELsafeProject/TRAVELsafe.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TRAVELsafeProject/TRAVELsafe/issues"
+  },
+  "homepage": "https://github.com/TRAVELsafeProject/TRAVELsafe#readme",
+  "description": ""
 }

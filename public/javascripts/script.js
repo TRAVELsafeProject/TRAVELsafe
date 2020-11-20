@@ -19,42 +19,46 @@ const getCityList = () => {
         .then((result) => {
           const cities = result.data.results
           let capitals = []
-          cities.forEach(city => {
+
+          
+
+          cities.forEach((city, index) => {
             const option = document.getElementById('cities-full-list')
             const capital = document.createElement('option')
+            const indexValue = index
+
+            capital.setAttribute("value", `value${indexValue}`)
+
             const capitalText = document.createTextNode(`${city.Subdivision_Name}`)
 
             capital.appendChild(capitalText)
             option.appendChild(capital)
-
-            // capital.textContent = `${city.Subdivision_Name}`
-            // option.appendChild(capital)
             
-            // capital.innerHTML = `${city.Subdivision_Name}`
-            // select.appendChild(capital)
-            // capitals.push(city.Subdivision_Name)
           });
-          // let sortedCapitals = capitals.sort()
-          // console.log(capitals)
-
-          // sortedCapitals.forEach(capital => {
-          //   const city = document.createElement('option')
-          //   city.innerText = capital
-          //   document.getElementById('cities-full-list').append(city)
-          // });
-            // HAY QUE TERMINAR DE ARREGLAR LAS CIUDADES (TILDES)
         })
         .catch((err) => {
           console.log(err)
-        })
-  
+        }) 
 }
-getCityList() 
+
+
+// const getOneCity = ()=>{
+
+//   document.querySelectorAll("option")
+
+// }
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  
+  getCityList() 
+
+  // document.getElementById("get-city-button").addEventListener("click", event =>{
+  //   getOneCity()
+  // })
 
 }, false);
+
 
 

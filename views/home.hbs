@@ -3,14 +3,21 @@
 <a href="/log-out">Log out</a>
 <p>Welcome, {{user.name}}</p>
 
-
-
 {{else}}
 <a href="/log-in">Log in</a>
 <a href="/sign-up">Sign up</a>
 {{/if}}
 
-<select id="cities-full-list">
-  <option selected >Select a city</option> 
-  {{!-- intercambiar Bilbao y Logroño --}}
-</select>
+
+<form action="city/{{city.index}}" method="POST">
+  <select id="cities-full-list">
+    <option selected >Select a city</option> 
+    {{!-- intercambiar Bilbao y Logroño --}}
+  </select>
+
+  <button type="submit" id="get-city-button">TAKE ME THERE</button>
+  
+</form>
+
+
+

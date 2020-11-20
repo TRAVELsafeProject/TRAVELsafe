@@ -69,5 +69,12 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 })
 
 
+//RUTA POST FORM CIUDAD
+
+router.post('/city/:value', (req, res, next)=>{
+  
+
+})
+
 
 module.exports = router;
