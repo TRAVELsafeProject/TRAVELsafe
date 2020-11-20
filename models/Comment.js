@@ -3,10 +3,11 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema(
     {
-      cityID: {type: Number},
-      userID: {type: Number},
-      comment: {type: String},
-      rating: {type: Number}
+      commemtTitle: {type: String}, // Limitar un máximo de caracteres
+      comment: {type: String}, // Limitar un máximo de caracteres
+      rating: {type: Number},
+      userID: {type: Schema.Types.ObjectId},
+      cityID: {type: Number}
     }
 )
 

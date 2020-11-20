@@ -18,9 +18,9 @@ router.get('/sign-up', (req, res, next) => {
 
 router.post('/sign-up', (req, res, next) => {
 
-    const {email, password} = req.body
+    const {name, email, password} = req.body
   
-    if(email === '' || password === '') {
+    if(name === '' || email === '' || password === '') {
       res.render('Users/signup', {errorMessage: 'You have to fill all the fields.'})
       return
     }
@@ -30,7 +30,7 @@ router.post('/sign-up', (req, res, next) => {
         if(!result) {
           bcrypt.hash(password, 10)
           .then((hashedPassword) => {
-            User.create({email, password: hashedPassword})
+            User.create({name, email, password: hashedPassword})
               .then(() => res.redirect('/log-in'))
           })
         } else {
@@ -64,18 +64,10 @@ router.get('/log-out', (req, res, next) => {
   res.redirect('/')
 })
 
-const checkAuth = (req, res, next) => {
-    if(req.isAuthenticated()) {
-      return next()
-    } else {
-      res.redirect('/log-in')
-    }
-}
-
-router.get('/my-profile', checkAuth, (req, res, next) => {
-  res.render('Users/myProfile', {user: req.user.email})
+router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+  res.render('Users/myProfile', {user: req.user})
 })
 
-//
+
 
 module.exports = router;

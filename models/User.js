@@ -3,12 +3,13 @@ const Schema = mongoose.Schema
 
 const userSchema = new Schema(
     {
-        // username: {type: String, require: true},
+        name: {type: String, require: true},
+        lastName: {type: String, require: true},
         email: {type: String, require: true},
         password: {type: String, require: true},
-        visitedCountry: {type: [String]},
-        pendingCountry: {type: [String]},
-        comments: {type: [String]}
+        visitedCountry: {type: [String], default: []},
+        pendingCountry: {type: [String], default: []},
+        comments: {type: [String], default: []}
     }
 )
 

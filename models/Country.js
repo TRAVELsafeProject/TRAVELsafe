@@ -15,7 +15,7 @@ const countrySchema = new Schema(
         comments: {type: String},
         dangerLevel: {type: String},
         usersRating: {type: Number},
-        cityID: {type: Number}
+        cities: {type: [String]}
     }
 )
 
