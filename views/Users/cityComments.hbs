@@ -1,0 +1,12 @@
+<a href="/">Home</a>
+
+<h2>{{city}} comments</h2>
+
+{{#each comments}}
+<h3>Title: {{this.commentTitle}}</h3>
+  <p>Comment: </p>
+  <p>{{this.comment}}</p>
+  <p>Rating: {{this.rating}}</p>
+  <br>
+
+{{/each}}

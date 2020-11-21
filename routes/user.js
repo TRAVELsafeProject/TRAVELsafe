@@ -5,7 +5,7 @@ const passport    = require('passport')
 const ensureLogin = require('connect-ensure-login')
 
 const User = require('../models/User')
-
+const Comment = require('../models/Comment')
 
 //RUTA GET DE SIGN UP
 
@@ -64,6 +64,8 @@ router.get('/log-out', (req, res, next) => {
   res.redirect('/')
 })
 
+// CHECK FOR AUTHENTICATION
+
 const checkAuth = (req, res, next) => {
   if(req.isAuthenticated()) {
     return next()
@@ -73,6 +75,7 @@ const checkAuth = (req, res, next) => {
 }
 
 //RUTA GET DE PROFILE
+
 router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   res.render('Users/myProfile', {user: req.user})
 })
@@ -80,12 +83,14 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 
 //RUTA GET CIUDAD
 
-router.get('/:city', checkAuth, (req, res, next)=>{
+router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
   const city = req.params.city
   res.render('Users/city', {city})
 })
 
-router.post('/add-wish-city/:city', (req, res, next) => {
+//RUTA POST DE ADD WISH CITY
+
+router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   const city = req.params.city
   const wishVisitCities = req.user.wishVisit
   const index = wishVisitCities.indexOf(city)
@@ -109,7 +114,9 @@ router.post('/add-wish-city/:city', (req, res, next) => {
     .catch((err) => (err))
 })
 
-router.post('/add-visited-city/:city', (req, res, next) => {
+//RUTA POST DE ADD VISITED CITY
+
+router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   const city = req.params.city
   const visitedCities = req.user.alreadyVisited
   const index = visitedCities.indexOf(city)
@@ -131,6 +138,53 @@ router.post('/add-visited-city/:city', (req, res, next) => {
       }
     })
     .catch((err) => (err))
+})
+
+//RUTA GET DE COMMENTS
+
+// router.get('/:city/city-comments', checkAuth, (req, res, next) => {
+
+//   Comment.find({userID: req.user._id})
+//     .then((result) => {
+//       res.render('Users/cityComments', {comments: result})
+//     })
+//     .catch((err) => res.send(err))
+// })
+
+router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
+  const city = req.params.city
+  res.render('Users/createComment', {city})
+})
+
+//RUTA GET DE CITY COMMENTS
+
+router.get('/city-comments/:city', checkAuth, (req, res, next)=>{
+  const city = req.params.city
+
+  Comment.find({})
+   .then((result) => {
+    res.render('Users/cityComments', {city, comments: result})
+   })
+   .catch((err) => (err))
+})
+
+// router.get('/city-comments/:city', checkAuth, (req, res, next)=>{
+//   const city = req.params.city
+//   res.render('Users/cityComments', {city})
+// })
+
+//RUTA POST DE ADD COMMENT
+
+router.post('/create-comment/:city', checkAuth, (req, res, next) => {
+  const {commentTitle, comment, rating} = req.body
+  const userID = req.user._id
+  const city = req.params.city
+
+  Comment.create({commentTitle, comment, rating, userID, cityName: city})
+    .then(()=>{
+      res.redirect(`/city-comments/${city}`)
+    })
+    .catch((err) => res.send(err))
 })
 
 module.exports = router;
