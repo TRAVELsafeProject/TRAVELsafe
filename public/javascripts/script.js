@@ -1,5 +1,3 @@
-
-
 const where = encodeURIComponent(JSON.stringify({
   "country": {
     "__type": "Pointer",
@@ -22,15 +20,12 @@ const getCityList = () => {
 
           
 
-          cities.forEach((city, index) => {
+          cities.forEach((city) => {
+
             const option = document.getElementById('cities-full-list')
             const capital = document.createElement('option')
-            const indexValue = index
-
-            capital.setAttribute("value", `value${indexValue}`)
-
             const capitalText = document.createTextNode(`${city.Subdivision_Name}`)
-
+            
             capital.appendChild(capitalText)
             option.appendChild(capital)
             
@@ -42,20 +37,25 @@ const getCityList = () => {
 }
 
 
-// const getOneCity = ()=>{
+// ELEMENTOS GUARDADOS DE DOM
 
-//   document.querySelectorAll("option")
+      // BOTONES
 
-// }
+const cityButton = document.getElementById("get-city-button")
+const wishButton = document.getElementById("wish-button")
 
-
+// ADD EVENT LISTENERS
 
 document.addEventListener('DOMContentLoaded', () => {
 
   getCityList() 
 
-  // document.getElementById("get-city-button").addEventListener("click", event =>{
-  //   getOneCity()
+  document.getElementById("get-city-button").onclick = () => {
+    window.location = document.getElementById('cities-full-list').value
+  }
+
+  // wishButton.addEventListener("click", event => {
+  //   wishButton.className = 'unclickable'
   // })
 
 }, false);

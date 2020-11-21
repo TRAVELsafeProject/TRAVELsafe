@@ -7,8 +7,8 @@ const userSchema = new Schema(
         lastName: {type: String, require: true},
         email: {type: String, require: true},
         password: {type: String, require: true},
-        visitedCountry: {type: [String], default: []},
-        pendingCountry: {type: [String], default: []},
+        alreadyVisited: {type: [String], default: []},
+        wishVisit: {type: [String], default: []},
         comments: {type: [String], default: []}
     }
 )

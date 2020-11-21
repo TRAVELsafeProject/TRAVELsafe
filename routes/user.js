@@ -64,16 +64,46 @@ router.get('/log-out', (req, res, next) => {
   res.redirect('/')
 })
 
+const checkAuth = (req, res, next) => {
+  if(req.isAuthenticated()) {
+    return next()
+  } else {
+    res.redirect('/log-in')
+  }
+}
+
+//RUTA GET DE PROFILE
 router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   res.render('Users/myProfile', {user: req.user})
 })
 
 
-//RUTA POST FORM CIUDAD
+//RUTA GET CIUDAD
 
-router.post('/city/:value', (req, res, next)=>{
-  
+router.get('/:city', checkAuth, (req, res, next)=>{
+  const city = req.params.city
+  res.render('Users/city', {city})
+})
 
+router.post('/add-wish-city/:city', (req, res, next) => {
+  const city = req.params.city
+  const index = wishVisit.indexOf(city)
+
+  User.findOne({email: req.user.email})
+    .then(() => {
+      if (!wishVisit.includes(city)) {
+        User.updateOne({email: req.user.email}, {$push: {wishVisit: city}})
+          .then((result) => {
+            console.log(result)
+          })
+      } else {
+        User.updateOne({email: req.user.email}, {$splice(index, 1): {wishVisit: city}})
+          .then((result) => {
+            console.log(result)
+          })
+      }
+    })
+    .catch((err) => (err))
 })
 
 
