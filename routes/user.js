@@ -142,15 +142,6 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
 
 //RUTA GET DE COMMENTS
 
-// router.get('/:city/city-comments', checkAuth, (req, res, next) => {
-
-//   Comment.find({userID: req.user._id})
-//     .then((result) => {
-//       res.render('Users/cityComments', {comments: result})
-//     })
-//     .catch((err) => res.send(err))
-// })
-
 router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
   const city = req.params.city
   res.render('Users/createComment', {city})
@@ -161,17 +152,12 @@ router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
 router.get('/city-comments/:city', checkAuth, (req, res, next)=>{
   const city = req.params.city
 
-  Comment.find({})
+  Comment.find({cityName: city})
    .then((result) => {
-    res.render('Users/cityComments', {city, comments: result})
+      res.render('Users/cityComments', {city, comments: result})
    })
    .catch((err) => (err))
 })
-
-// router.get('/city-comments/:city', checkAuth, (req, res, next)=>{
-//   const city = req.params.city
-//   res.render('Users/cityComments', {city})
-// })
 
 //RUTA POST DE ADD COMMENT
 
