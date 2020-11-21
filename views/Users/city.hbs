@@ -18,7 +18,14 @@
   
 </form>
 
+<h2>Comments</h2>
+
+{{#each comments}}
+<h3>Title: {{this.commentTitle}}</h3>
+  <p>Comment: </p>
+  <p>{{this.comment}}</p>
+  <p>Rating: {{this.rating}}</p>
+  <p>Created by: {{this.userID}}</p>
+{{/each}}
+
 <a href="/create-comment/{{city}}">Add a comment</a>
-<a href="/city-comments/{{city}}">View comments</a>
-
-

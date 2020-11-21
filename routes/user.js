@@ -81,11 +81,16 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 })
 
 
-//RUTA GET CIUDAD
+//RUTA GET CITY
 
 router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
   const city = req.params.city
-  res.render('Users/city', {city})
+
+  Comment.find({cityName: city})
+   .then((result) => {
+      res.render('Users/city', {city, comments: result})
+   })
+   .catch((err) => (err))
 })
 
 //RUTA POST DE ADD WISH CITY
@@ -140,26 +145,16 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
     .catch((err) => (err))
 })
 
-//RUTA GET DE COMMENTS
+//RUTAS DE CREATE COMMENTS
+
+////      RUTA GET
 
 router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
   const city = req.params.city
   res.render('Users/createComment', {city})
 })
 
-//RUTA GET DE CITY COMMENTS
-
-router.get('/city-comments/:city', checkAuth, (req, res, next)=>{
-  const city = req.params.city
-
-  Comment.find({cityName: city})
-   .then((result) => {
-      res.render('Users/cityComments', {city, comments: result})
-   })
-   .catch((err) => (err))
-})
-
-//RUTA POST DE ADD COMMENT
+////      RUTA POST
 
 router.post('/create-comment/:city', checkAuth, (req, res, next) => {
   const {commentTitle, comment, rating} = req.body
@@ -168,7 +163,21 @@ router.post('/create-comment/:city', checkAuth, (req, res, next) => {
 
   Comment.create({commentTitle, comment, rating, userID, cityName: city})
     .then(()=>{
-      res.redirect(`/city-comments/${city}`)
+      res.redirect(`/${city}`)
+    })
+    .catch((err) => res.send(err))
+})
+
+
+//RUTA GET DE MY COMMENTS
+
+router.get('/my-profile/my-comments', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+  const userID = req.user._id
+  const name = req.user.name
+
+  Comment.find({userID})
+    .then((result) => {
+      res.render('Users/myComments', {name, comments: result})
     })
     .catch((err) => res.send(err))
 })
