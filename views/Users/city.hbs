@@ -7,8 +7,15 @@
 </div>
 
 <form action="/add-wish-city/{{city}}" method="POST">
-  <button id="wish-button" class"clickable">Wish to visit</button>
+
+  <button id="wish-button">Wish to visit</button>
+  
 </form>
 
-<button>Already visited</button>
+<form action="/add-visited-city/{{city}}" method="POST">
+
+  <button id="visited-button">Already visited</button>
+  
+</form>
+
 

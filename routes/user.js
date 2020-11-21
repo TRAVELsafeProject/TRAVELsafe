@@ -87,24 +87,50 @@ router.get('/:city', checkAuth, (req, res, next)=>{
 
 router.post('/add-wish-city/:city', (req, res, next) => {
   const city = req.params.city
-  const index = wishVisit.indexOf(city)
+  const wishVisitCities = req.user.wishVisit
+  const index = wishVisitCities.indexOf(city)
 
   User.findOne({email: req.user.email})
     .then(() => {
-      if (!wishVisit.includes(city)) {
-        User.updateOne({email: req.user.email}, {$push: {wishVisit: city}})
-          .then((result) => {
-            console.log(result)
-          })
+      if (wishVisitCities.includes(city)) {
+        wishVisitCities.splice(index, 1)
+        User.updateOne({wishVisit: wishVisitCities})
+          .then(() => {
+              res.redirect(`/${city}`)
+            })
+
       } else {
-        User.updateOne({email: req.user.email}, {$splice(index, 1): {wishVisit: city}})
-          .then((result) => {
-            console.log(result)
+        User.updateOne({$push: {wishVisit: city}})
+          .then(() => {
+            res.redirect(`/${city}`)
           })
       }
     })
     .catch((err) => (err))
 })
 
+router.post('/add-visited-city/:city', (req, res, next) => {
+  const city = req.params.city
+  const visitedCities = req.user.alreadyVisited
+  const index = visitedCities.indexOf(city)
+
+  User.findOne({email: req.user.email})
+    .then(() => {
+      if (visitedCities.includes(city)) {
+        visitedCities.splice(index, 1)
+        User.updateOne({alreadyVisited: visitedCities})
+          .then(() => {
+            res.redirect(`/${city}`)
+          })
+
+      } else {
+        User.updateOne({$push: {alreadyVisited: city}})
+          .then(() => {
+            res.redirect(`/${city}`)
+          })
+      }
+    })
+    .catch((err) => (err))
+})
 
 module.exports = router;

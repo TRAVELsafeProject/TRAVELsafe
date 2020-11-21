@@ -9,14 +9,18 @@
   <div class="wish-cities">
     <h3>Wish to visit:</h3>
       <ul>
-        <li>Ciudades por visitar</li>
+        {{#each user.wishVisit}}
+        <li><a href="{{this}}">{{this}}</a></li>
+        {{/each}}
       </ul>
   </div>
 
   <div class="visited-cities">
     <h3>Already visited:</h3>
       <ul>
-        <li>Ciudades visitadas</li>
+        {{#each user.alreadyVisited}}
+        <li><a href="{{this}}">{{this}}</a></li>
+        {{/each}}
       </ul>
   </div>
 
