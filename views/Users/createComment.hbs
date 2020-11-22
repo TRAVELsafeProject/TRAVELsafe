@@ -2,10 +2,10 @@
 
     <br>
     <label for="commentTitle">Title: </label>
-    <input type="text" id="commentTitle" name="commentTitle">
+    <input type="text" id="commentTitle" name="commentTitle" minlength="5" maxlength="50" required>
     <br>
     <label for="comment">Comment: </label>
-    <textarea type="text" id="comment" name="comment"></textarea>
+    <textarea type="text" id="comment" name="comment" minlength="100" maxlength="500" required></textarea>
     <br>
     <label for="rating">Rating: </label>
     <input type="radio" id="1" name="rating" value="1">

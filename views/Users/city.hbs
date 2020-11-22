@@ -2,6 +2,8 @@
 
 <h2>{{city}}</h2>
 
+<span id="total-rating"></span>
+
 <div class="comments-container">
   {{!-- Aquí irá cada comentario --}}
 </div>
@@ -24,7 +26,7 @@
 <h3>Title: {{this.commentTitle}}</h3>
   <p>Comment: </p>
   <p>{{this.comment}}</p>
-  <p>Rating: {{this.rating}}</p>
+  <p>Rating: <span class="comment-rating">{{this.rating}}</span></p>
   <p>Created by: {{this.name}} {{this.lastName}}</p>
 {{/each}}
 

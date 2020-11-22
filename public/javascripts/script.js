@@ -64,6 +64,23 @@ const getCityList = () => {
         }) 
 }
 
+const totalRating = () => {
+
+    const totalRating = document.getElementById('total-rating')
+    const commentsRating = document.getElementsByClassName('comment-rating')
+    const commentsRatingFixed = [... commentsRating]
+    let counter = 0
+    
+    commentsRatingFixed.forEach((rating)=>{
+      
+      counter += Number(rating.innerHTML)
+    
+    })
+
+    totalRating.textContent = counter / commentsRatingFixed.length
+
+}
+
 
 // ELEMENTOS GUARDADOS DE DOM
 
@@ -82,11 +99,11 @@ document.addEventListener('DOMContentLoaded', () => {
     window.location = document.getElementById('cities-full-list').value
   }
 
-  // wishButton.addEventListener("click", event => {
-  //   wishButton.className = 'unclickable'
-  // })
-
 }, false);
+
+window.addEventListener('load', () => {
+  totalRating()
+})
 
 
 
