@@ -18,9 +18,9 @@ router.get('/sign-up', (req, res, next) => {
 
 router.post('/sign-up', (req, res, next) => {
 
-    const {name, email, password} = req.body
+    const {name, lastName, email, password} = req.body
   
-    if(name === '' || email === '' || password === '') {
+    if(name === '' || lastName === '' || email === '' || password === '') {
       res.render('Users/signup', {errorMessage: 'You have to fill all the fields.'})
       return
     }
@@ -30,7 +30,7 @@ router.post('/sign-up', (req, res, next) => {
         if(!result) {
           bcrypt.hash(password, 10)
           .then((hashedPassword) => {
-            User.create({name, email, password: hashedPassword})
+            User.create({name, lastName, email, password: hashedPassword})
               .then(() => res.redirect('/log-in'))
           })
         } else {
@@ -160,8 +160,10 @@ router.post('/create-comment/:city', checkAuth, (req, res, next) => {
   const {commentTitle, comment, rating} = req.body
   const userID = req.user._id
   const city = req.params.city
+  const name = req.user.name
+  const lastName = req.user.lastName
 
-  Comment.create({commentTitle, comment, rating, userID, cityName: city})
+  Comment.create({commentTitle, comment, rating, userID, name, lastName, cityName: city})
     .then(()=>{
       res.redirect(`/${city}`)
     })

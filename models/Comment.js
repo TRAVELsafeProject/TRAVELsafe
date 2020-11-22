@@ -7,6 +7,8 @@ const commentSchema = new Schema(
       comment: {type: String}, // Limitar un máximo de caracteres
       rating: {type: Number},
       userID: {type: Schema.Types.ObjectId},
+      name: {type: String},
+      lastName: {type: String},
       cityName: {type: String}
     }
 )
