@@ -66,7 +66,6 @@ const getCityList = () => {
         }) 
 }
 
-
 //FUNCIÓN PARA MOSTRAR RATING DE CADA CIUDAD
 const totalRating = () => {
 
