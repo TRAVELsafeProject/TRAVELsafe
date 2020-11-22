@@ -182,4 +182,43 @@ router.get('/my-profile/my-comments', ensureLogin.ensureLoggedIn('/log-in'), (re
     .catch((err) => res.send(err))
 })
 
+
+//RUTA DELETE DE MY COMMENTS
+router.post('/my-profile/delete-comment/:id', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+  const commentId = req.params.id
+
+  Comment.findByIdAndDelete(commentId)
+    .then(()=> {
+      res.redirect('/my-profile/my-comments')
+    })
+    .catch((err) => res.send(err))
+})
+
+//RUTA PARA EDITAR MY COMMENTS
+
+      //RUTA GET DE EDIT MY COMMENTS
+
+router.get('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+  const commentId = req.params.id
+
+  Comment.findById(commentId)
+    .then((result)=> {
+      res.render('Users/editComment', result)
+    })
+    .catch((err) => res.send(err))
+})
+
+      //RUTA POST DE EDIT DE MY COMMENTS
+router.post('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+  const commentId = req.params.id
+  const editedComment = req.body
+
+  Comment.findByIdAndUpdate(commentId, editedComment)
+    .then(()=> {
+      res.redirect('/my-profile/my-comments')
+    })
+    .catch((err) => res.send(err))
+})
+
+
 module.exports = router;
