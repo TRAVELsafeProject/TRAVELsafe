@@ -5,6 +5,7 @@ const where = encodeURIComponent(JSON.stringify({
     "objectId": "5Vs8zprtNC"
   }}))
 
+//FUNCIÓN PARA MOSTRAR LA LISTA DE LAS CIUDADES EN EL DESPLEGABLE
 const getCityList = () => {
       
       axios.get(`https://parseapi.back4app.com/classes/Continentscountriescities_Subdivisions_States_Provinces?limit=200&order=name&where=${where}`, {
@@ -44,6 +45,7 @@ const getCityList = () => {
             capitalsFixed[i] = capitalsFixed[i].replace("Girona  [Gerona]", "Girona");
             capitalsFixed[i] = capitalsFixed[i].replace("Pontevedra  [Pontevedra]", "Pontevedra");
             capitalsFixed[i] = capitalsFixed[i].replace("Lleida  [Lérida]", "Lleida");
+            capitalsFixed[i] = capitalsFixed[i].replace("Asturias", "Oviedo");
           }
 
           const sortedCapitals = capitalsFixed.sort()
@@ -64,6 +66,8 @@ const getCityList = () => {
         }) 
 }
 
+
+//FUNCIÓN PARA MOSTRAR RATING DE CADA CIUDAD
 const totalRating = () => {
 
     const totalRating = document.getElementById('total-rating')

@@ -2,7 +2,9 @@
 
 <h2>{{city}}</h2>
 
+{{#if comments}}
 <span id="total-rating"></span>
+{{/if}}
 
 <div class="comments-container">
   {{!-- Aquí irá cada comentario --}}
@@ -29,5 +31,9 @@
   <p>Rating: <span class="comment-rating">{{this.rating}}</span></p>
   <p>Created by: {{this.name}} {{this.lastName}}</p>
 {{/each}}
+
+{{#if errorMessage}}
+  {{errorMessage}}
+{{/if}}
 
 <a href="/create-comment/{{city}}">Add a comment</a>
