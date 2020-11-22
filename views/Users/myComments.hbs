@@ -2,9 +2,16 @@
 
 {{#each comments}}
 <h3>{{this.cityName}}</h3>
-<h2>Title: {{this.commentTitle}}</h2>
+<h4>Title: {{this.commentTitle}}</h4>
   <p>Comment: </p>
   <p>{{this.comment}}</p>
   <p>Rating: {{this.rating}}</p>
+
+  <form action='/my-profile/delete-comment/{{id}}' method="POST">
+    <button class="submit-comment" type="submit">DELETE COMMENT</button> 
+  </form>
+
+  <button class="submit-comment" type="submit"><a href='/my-profile/edit-comment/{{id}}'>EDIT COMMENT</a></button> 
+
 {{/each}}
 

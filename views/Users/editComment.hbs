@@ -1,0 +1,26 @@
+<form action="/my-profile/edit-comment/{{id}}" method="POST">
+
+    <br>
+    <label for="commentTitle">Title: </label>
+    <input type="text" id="commentTitle" name="commentTitle" value="{{commentTitle}}">
+    <br>
+    <label for="comment">Comment: </label>
+    <textarea type="text" id="comment" name="comment">{{comment}}</textarea>
+    <br>
+    <label for="rating">Rating: </label>
+    <input type="radio" id="1" name="rating" value="1">
+    <label for="1">1</label>
+    <input type="radio" id="2" name="rating" value="2">
+    <label for="2">2</label>
+    <input type="radio" id="3" name="rating" value="3">
+    <label for="3">3</label>
+    <input type="radio" id="4" name="rating" value="4">
+    <label for="4">4</label>
+    <input type="radio" id="5" name="rating" value="5">
+    <label for="5">5</label>
+    <br>
+    <br>
+    <button class="submit-comment" type="submit">SAVE CHANGES</button>
+
+
+</form>
