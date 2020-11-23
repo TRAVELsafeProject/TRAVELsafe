@@ -86,6 +86,7 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
   const city = req.params.city
   const userID = req.user._id
+  const user = req.user
 
   Comment.find({cityName: city})
    .then((resultComments) => {
@@ -105,7 +106,7 @@ router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
           } else {
             addToWish = true
           }
-          res.render('Users/city', {city, addToWish, addToVisited, comments: resultComments})
+          res.render('Users/city', {city, user, addToWish, addToVisited, comments: resultComments})
         })
   })
    .catch((err) => (err))
@@ -192,16 +193,17 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
 router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
   const city = req.params.city
   const id = req.user._id
+  const user = req.user
 
   Comment.findOne({userID: id, cityName: city})
     .then((result)=>{
-      console.log(result)
       if (!result) {
-        res.render('Users/createComment', {city})
+        res.render('Users/createComment', {city, user})
       } else {
         res.redirect(`/${city}`)
       }
     })
+    .catch((err) => (err))
 })
 
 ////      RUTA POST
@@ -226,10 +228,11 @@ router.post('/create-comment/:city', checkAuth, (req, res, next) => {
 router.get('/my-profile/my-comments', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   const userID = req.user._id
   const name = req.user.name
+  const user = req.user
 
   Comment.find({userID})
     .then((result) => {
-      res.render('Users/myComments', {name, comments: result})
+      res.render('Users/myComments', {user, name, comments: result})
     })
     .catch((err) => res.send(err))
 })
@@ -252,6 +255,7 @@ router.post('/my-profile/delete-comment/:id', ensureLogin.ensureLoggedIn('/log-i
 
 router.get('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   const commentId = req.params.id
+  const user = req.user
 
   Comment.findById(commentId)
     .then((result)=> {
@@ -269,7 +273,7 @@ router.post('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in'
     .then(()=> {
       res.redirect('/my-profile/my-comments')
     })
-    .catch((err) => res.send(err))
+    .catch((err) => console.log(err))
 })
 
 

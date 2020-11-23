@@ -1,5 +1,3 @@
-<a href="/">Home</a>
-<a href="/my-profile">My profile</a>
 
 <h2>{{city}}</h2>
 
@@ -41,4 +39,8 @@
   {{errorMessage}}
 {{/if}}
 
+{{#if addToVisited}}
+<p>Il you want to leave a comment, please add this city to your already visited cities list.</p>
+{{else}}
 <a href="/create-comment/{{city}}">Add a comment</a>
+{{/if}}
