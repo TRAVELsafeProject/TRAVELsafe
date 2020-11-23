@@ -1,11 +1,32 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif; }
+  font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
+  padding: 75px 0; }
 
-a {
-  color: #00B7FF; }
+.travel-icon {
+  height: 40px; }
 
-.user {
-  color: red; }
+.navbar {
+  background-color: #17a2b8ff;
+  margin-bottom: 10px; }
+
+.city-select {
+  margin: 20px 0; }
+
+footer {
+  background-color: #e0e0e0; }
+
+.copyright {
+  font-size: .6rem;
+  color: #17a2b8ff; }
+
+.about-us {
+  font-size: .7rem;
+  color: #17a2b8ff;
+  text-decoration: underline; }
 
 /*# sourceMappingURL=style.css.map */
