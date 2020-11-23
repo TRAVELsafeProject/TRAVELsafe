@@ -12,15 +12,19 @@
 </div>
 
 <form action="/add-wish-city/{{city}}" method="POST">
-
+{{#if addToWish}}
   <button id="wish-button">Wish to visit</button>
-  
+{{else}}
+  <button id="wish-button">Remove from wish list</button>
+{{/if}}
 </form>
 
 <form action="/add-visited-city/{{city}}" method="POST">
-
+{{#if addToVisited}}
   <button id="visited-button">Already visited</button>
-  
+{{else}}
+  <button id="wish-button">Remove from already visited list</button>
+{{/if}}
 </form>
 
 <h2>Comments</h2>

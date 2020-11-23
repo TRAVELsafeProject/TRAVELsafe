@@ -85,11 +85,29 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 
 router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
   const city = req.params.city
+  const userID = req.user._id
 
   Comment.find({cityName: city})
-   .then((result) => {
-      res.render('Users/city', {city, comments: result})
-   })
+   .then((resultComments) => {
+      User.findById(userID)
+        .then((result) => {
+          const visitedCities = result.alreadyVisited
+          const wishVisitCities = result.wishVisit
+          let addToWish = true
+          let addToVisited = true
+          if(visitedCities.includes(city)) {
+            addToVisited = false
+          } else {
+            addToVisited = true
+          }
+          if(wishVisitCities.includes(city)) {
+            addToWish = false
+          } else {
+            addToWish = true
+          }
+          res.render('Users/city', {city, addToWish, addToVisited, comments: resultComments})
+        })
+  })
    .catch((err) => (err))
 })
 
@@ -103,29 +121,29 @@ router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req,
   const visitedCitiesIndex = visitedCities.indexOf(city)
 
   User.findOne({email: req.user.email})
-    .then(() => {
+    .then((result) => {
+
+      const userID = result._id
+
       if (wishVisitCities.includes(city)) {
         wishVisitCities.splice(wishVisitCitiesIndex, 1)
-        User.updateOne({wishVisit: wishVisitCities})
+        User.findByIdAndUpdate(userID, {wishVisit: wishVisitCities})
           .then(() => {
             res.redirect(`/${city}`)
           })
-      } 
-      if (!wishVisitCities.includes(city))  {
-        User.updateOne({$push: {wishVisit: city}})
+      } else if (!wishVisitCities.includes(city))  {
+        User.findByIdAndUpdate(userID, {$push: {wishVisit: city}})
           .then(() => {
             res.redirect(`/${city}`)
           })
       } 
       if (visitedCities.includes(city))  {
         visitedCities.splice(visitedCitiesIndex, 1)
-        User.updateOne({alreadyVisited: visitedCities})
+        User.findByIdAndUpdate(userID, {alreadyVisited: visitedCities})
           .then(() => {
             res.redirect(`/${city}`)
          })
       }
-
-
     })
     .catch((err) => (err))
 })
@@ -140,30 +158,32 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
   const visitedCitiesIndex = visitedCities.indexOf(city)
 
   User.findOne({email: req.user.email})
-    .then(() => {
+    .then((result) => {
+
+      const userID = result._id
+
       if (visitedCities.includes(city)) {
         visitedCities.splice(visitedCitiesIndex, 1)
-        User.updateOne({alreadyVisited: visitedCities})
+        User.findByIdAndUpdate(userID, {alreadyVisited: visitedCities})
           .then(() => {
             res.redirect(`/${city}`)
           })
-        } 
-      if (!visitedCities.includes(city))  {
-        User.updateOne({$push: {alreadyVisited: city}})
+        } else if (!visitedCities.includes(city))  {
+        User.findByIdAndUpdate(userID, {$push: {alreadyVisited: city}})
           .then(() => {
             res.redirect(`/${city}`)
           })
         }
       if (wishVisitCities.includes(city))  {
         wishVisitCities.splice(wishVisitCitiesIndex, 1)
-        User.updateOne({wishVisit: wishVisitCities})
+        User.findByIdAndUpdate(userID, {wishVisit: wishVisitCities})
           .then(() => {
             res.redirect(`/${city}`)
           })
         }
-      })
-      .catch((err) => (err))
-  })
+    })
+    .catch((err) => (err))
+})
 
 //RUTAS DE CREATE COMMENTS
 
