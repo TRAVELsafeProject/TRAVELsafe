@@ -85,106 +85,123 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
 
 router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next)=>{
   const city = req.params.city
-  const userID = req.user._id
-  const user = req.user
 
   Comment.find({cityName: city})
-   .then((resultComments) => {
-      User.findById(userID)
-        .then((result) => {
-          const visitedCities = result.alreadyVisited
-          const wishVisitCities = result.wishVisit
-          let addToWish = true
-          let addToVisited = true
-          if(visitedCities.includes(city)) {
-            addToVisited = false
-          } else {
-            addToVisited = true
-          }
-          if(wishVisitCities.includes(city)) {
-            addToWish = false
-          } else {
-            addToWish = true
-          }
-          res.render('Users/city', {city, user, addToWish, addToVisited, comments: resultComments})
-        })
-  })
+   .then((result) => {
+      res.render('Users/city', {city, comments: result})
+   })
    .catch((err) => (err))
 })
 
 //RUTA POST DE ADD WISH CITY
 
-router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+router.post('/add-wish-city/:city', checkAuth, (req, res, next) => {
   const city = req.params.city
   const wishVisitCities = req.user.wishVisit
-  const wishVisitCitiesIndex = wishVisitCities.indexOf(city)
-  const visitedCities = req.user.alreadyVisited
-  const visitedCitiesIndex = visitedCities.indexOf(city)
+  const index = wishVisitCities.indexOf(city)
+  const email = req.user.email
+  const name = req.user.name
 
-  User.findOne({email: req.user.email})
-    .then((result) => {
-
-      const userID = result._id
-
+  User.find({email, name})
+    .then(() => {
       if (wishVisitCities.includes(city)) {
-        wishVisitCities.splice(wishVisitCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {wishVisit: wishVisitCities})
+        wishVisitCities.splice(index, 1)
+        User.updateOne({wishVisit: wishVisitCities})
+          .then(() => {
+              res.redirect(`/${city}`)
+            })
+
+      } else {
+        User.updateOne({$push: {wishVisit: city}})
           .then(() => {
             res.redirect(`/${city}`)
           })
-      } else if (!wishVisitCities.includes(city))  {
-        User.findByIdAndUpdate(userID, {$push: {wishVisit: city}})
-          .then(() => {
-            res.redirect(`/${city}`)
-          })
-      } 
-      if (visitedCities.includes(city))  {
-        visitedCities.splice(visitedCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {alreadyVisited: visitedCities})
-          .then(() => {
-            res.redirect(`/${city}`)
-         })
       }
     })
     .catch((err) => (err))
 })
 
+// router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+//   const city = req.params.city
+//   const wishVisitCities = req.user.wishVisit
+//   const wishVisitCitiesIndex = wishVisitCities.indexOf(city)
+//   const visitedCities = req.user.alreadyVisited
+//   const visitedCitiesIndex = visitedCities.indexOf(city)
+
+//   User.findOne({email: req.user.email})
+//     .then(() => {
+//       if (wishVisitCities.includes(city)) {
+//         wishVisitCities.splice(wishVisitCitiesIndex, 1)
+//         User.updateOne({wishVisit: wishVisitCities})
+//           .then(() => {
+//               res.redirect(`/${city}`)
+//             })
+
+//       } else if (!wishVisitCities.includes(city))  {
+//         visitedCities.splice(visitedCitiesIndex, 1)
+//         User.updateOne({$push: {wishVisit: city}})
+//           .then(() => {
+//             res.redirect(`/${city}`)
+//           })
+//       }
+//     })
+//     .catch((err) => (err))
+// })
+
 //RUTA POST DE ADD VISITED CITY
 
-router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+router.post('/add-visited-city/:city', checkAuth, (req, res, next) => {
   const city = req.params.city
-  const wishVisitCities = req.user.wishVisit
-  const wishVisitCitiesIndex = wishVisitCities.indexOf(city)
   const visitedCities = req.user.alreadyVisited
-  const visitedCitiesIndex = visitedCities.indexOf(city)
+  const index = visitedCities.indexOf(city)
+  const email = req.user.email
+  const name = req.user.name
 
-  User.findOne({email: req.user.email})
-    .then((result) => {
-
-      const userID = result._id
-
+  User.find({email, name})
+    .then(() => {
       if (visitedCities.includes(city)) {
-        visitedCities.splice(visitedCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {alreadyVisited: visitedCities})
+        visitedCities.splice(index, 1)
+        User.updateOne({alreadyVisited: visitedCities})
           .then(() => {
             res.redirect(`/${city}`)
           })
-        } else if (!visitedCities.includes(city))  {
-        User.findByIdAndUpdate(userID, {$push: {alreadyVisited: city}})
+
+      } else {
+        User.updateOne({$push: {alreadyVisited: city}})
           .then(() => {
             res.redirect(`/${city}`)
           })
-        }
-      if (wishVisitCities.includes(city))  {
-        wishVisitCities.splice(wishVisitCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {wishVisit: wishVisitCities})
-          .then(() => {
-            res.redirect(`/${city}`)
-          })
-        }
+      }
     })
     .catch((err) => (err))
 })
+
+// router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
+//   const city = req.params.city
+//   const wishVisitCities = req.user.wishVisit
+//   const wishVisitCitiesIndex = wishVisitCities.indexOf(city)
+//   const visitedCities = req.user.alreadyVisited
+//   const visitedCitiesIndex = visitedCities.indexOf(city)
+
+//   User.findOne({email: req.user.email})
+//     .then(() => {
+//       if (visitedCities.includes(city)) {
+//         visitedCities.splice(visitedCitiesIndex, 1)
+//         User.updateOne({alreadyVisited: visitedCities})
+//           .then(() => {
+//             res.redirect(`/${city}`)
+//           })
+
+//         } else if (!visitedCities.includes(city))  {
+//           wishVisitCities.splice(wishVisitCitiesIndex, 1)
+//           User.updateOne({$push: {alreadyVisited: city}})
+//             .then(() => {
+//               res.redirect(`/${city}`)
+//             })
+//         }
+//       })
+//       .catch((err) => (err))
+//   })
 
 //RUTAS DE CREATE COMMENTS
 
@@ -193,17 +210,16 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
 router.get('/create-comment/:city', checkAuth, (req, res, next)=>{
   const city = req.params.city
   const id = req.user._id
-  const user = req.user
 
   Comment.findOne({userID: id, cityName: city})
     .then((result)=>{
+      console.log(result)
       if (!result) {
-        res.render('Users/createComment', {city, user})
+        res.render('Users/createComment', {city})
       } else {
         res.redirect(`/${city}`)
       }
     })
-    .catch((err) => (err))
 })
 
 ////      RUTA POST
@@ -228,11 +244,11 @@ router.post('/create-comment/:city', checkAuth, (req, res, next) => {
 router.get('/my-profile/my-comments', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
   const userID = req.user._id
   const name = req.user.name
-  const user = req.user
+
 
   Comment.find({userID})
     .then((result) => {
-      res.render('Users/myComments', {user, name, comments: result})
+      res.render('Users/myComments', {name, comments: result})
     })
     .catch((err) => res.send(err))
 })
@@ -259,7 +275,7 @@ router.get('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in')
 
   Comment.findById(commentId)
     .then((result)=> {
-      res.render('Users/editComment', result)
+      res.render('Users/editComment', {result, user})
     })
     .catch((err) => res.send(err))
 })
@@ -273,7 +289,7 @@ router.post('/my-profile/edit-comment/:id', ensureLogin.ensureLoggedIn('/log-in'
     .then(()=> {
       res.redirect('/my-profile/my-comments')
     })
-    .catch((err) => console.log(err))
+    .catch((err) => res.send(err))
 })
 
 
