@@ -84,6 +84,24 @@ const totalRating = () => {
 
 }
 
+//FUNCIÓN PARA COUNTER DE CARÁCTERES
+
+const charCounter = ()=>{
+  const textAreaSpan = document.getElementById('textCounter')
+  const textArea = document.getElementById('comment')
+  let strLenght = textArea.value.length
+  let maxLength = textArea.getAttribute('maxlength')
+  let charRemain = (0 + strLenght)
+
+  if(charRemain === maxLength) {
+    textAreaSpan.innerHTML = "You've reached the max characters."
+  } else {
+    textAreaSpan.innerHTML = charRemain + `/${maxLength}` + " (min. 100 characters)"
+  }
+
+  console.log(maxLength)
+}
+
 
 // ELEMENTOS GUARDADOS DE DOM
 
@@ -106,6 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
 window.addEventListener('load', () => {
   totalRating()
+})
+
+window.addEventListener('keydown', () => {
+  charCounter()
 })
 
 
