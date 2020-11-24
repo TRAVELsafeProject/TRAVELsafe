@@ -67,19 +67,20 @@
       <div class="row justify-content-center">
 
       {{#each comments}}
-      <div class="col col-md-12 col-lg-6 col-xl-6">
+      <div class="col col-md-12 col-lg-12 col-xl-12">
         <div class="card m-2">
-          <div class="card-body">
+          <div class="card-body module">
             <h5 class="card-title">{{this.commentTitle}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{this.name}} {{this.lastName}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Rating: <span class="comment-rating">{{this.rating}}</span> </h6>
-            <p class="card-text text-justify">{{this.comment}}</p>
+            <p class="card-text text-justify collapse comment-collapse" aria-expanded="false">{{this.comment}}</p>
+            <a role="button" class="collapsed" data-toggle="collapse" href=".comment-collapse" aria-expanded="false" aria-controls="comment-collapse"></a>
           </div>
         </div>
       </div>
       {{/each}}
 
-      </div>
+    </div>
 
 
 

@@ -75,3 +75,32 @@ footer {
   background-color: rgba($color: #17a2b8ff, $alpha: .1);
   font-weight: bold;
 }
+
+//CITY________________________________________
+
+
+
+
+.module .collapseExample.collapse:not(.show) {
+  display: block;
+  height: 3rem;
+  overflow: hidden;
+}
+
+.module .comment-collapse.collapsing {
+  height: 3rem;
+}
+
+.module a.collapsed::after {
+  content: 'Read Comment';
+}
+
+.module a:not(.collapsed)::after {
+  content: 'Hide Comment';
+}
+
+//MY COMMENTS____________________________-
+
+// .warning-button {
+//   padding: 0 25px;
+// }

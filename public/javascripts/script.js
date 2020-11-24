@@ -80,7 +80,7 @@ const totalRating = () => {
     
     })
 
-    totalRating.textContent = counter / commentsRatingFixed.length
+    totalRating.textContent = (counter / commentsRatingFixed.length).toFixed(1)
 
 }
 
