@@ -61,4 +61,7 @@ footer {
 .module a:not(.collapsed)::after {
   content: 'Hide Comment'; }
 
+.add-comment-city-title {
+  text-transform: uppercase; }
+
 /*# sourceMappingURL=style.css.map */
