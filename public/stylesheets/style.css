@@ -34,7 +34,13 @@ footer {
 .error-message-login-signup {
   color: tomato; }
 
-ul {
-  list-style: none; }
+.already-visited-title, .wish-to-visit-title {
+  background-color: rgba(23, 162, 184, 0.4);
+  font-weight: bold;
+  color: #413e3e; }
+
+.list-group-item-action:hover {
+  background-color: rgba(23, 162, 184, 0.1);
+  font-weight: bold; }
 
 /*# sourceMappingURL=style.css.map */

@@ -64,8 +64,13 @@ footer {
 
 //MY PROFILE________________________________
 
-ul {
-  list-style: none;
+.already-visited-title, .wish-to-visit-title {
+  background-color: rgba($color: #17a2b8ff, $alpha: .4);
+  font-weight: bold;
+  color: rgb(65, 62, 62);
 }
 
-
+.list-group-item-action:hover{
+  background-color: rgba($color: #17a2b8ff, $alpha: .1);
+  font-weight: bold;
+}
