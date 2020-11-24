@@ -108,9 +108,7 @@ router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => 
   const userID = req.user._id
   const user = req.user
 
-  Comment.find({
-      cityName: city
-    })
+  Comment.find({cityName: city})
     .then((resultComments) => {
       User.findById(userID)
         .then((result) => {
@@ -128,7 +126,20 @@ router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => 
           } else {
             addToWish = true
           }
-          res.render('Users/city', {city, user, addToWish, addToVisited, comments: resultComments})
+
+          Comment.find({userID})
+          .then((resultComment)=>{
+            const userComment = resultComment.userID
+            let noComment = false
+            console.log(resultComment)
+            if(!userComment) {
+              noComment = false
+            } else {
+              noComment = true
+            }
+            res.render('Users/city', {city, user, addToWish, addToVisited, noComment: resultComment, comments: resultComments})
+          })
+          
         })
     })
     .catch((err) => (err))

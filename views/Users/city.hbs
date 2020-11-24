@@ -1,46 +1,97 @@
+<div class="container">
 
-<h2>{{city}}</h2>
+  <div class="container card p-3 mt-3">
 
-{{#if comments}}
-<span id="total-rating"></span>
-{{/if}}
+      <div class="row justify-content-center text-center">
+        <div class="col">
+          <h4>{{city}}</h4>
+        </div>
+      </div>
 
-<div class="comments-container">
-  {{!-- Aquí irá cada comentario --}}
+      <div class="row justify-content-center text-center">
+        <div class="col">
+          {{#if comments}}
+            <span id="total-rating"></span>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center">
+
+        <div class="col-12 mt-3">
+          <form action="/add-wish-city/{{city}}" method="POST">
+            {{#if addToWish}}
+            <button class="btn btn-outline-info">Wish to visit</button>
+            {{else}}
+            <button class="btn btn-outline-danger">Remove from wish list</button>
+            {{/if}}
+          </form>
+        </div>
+
+        <div class="col-12 mt-2">
+          <form action="/add-visited-city/{{city}}" method="POST">
+            {{#if addToVisited}}
+            <button class="btn btn-outline-info">Already visited</button>
+            {{else}}
+            <button class="btn btn-outline-danger">Remove from already visited list</button>
+            {{/if}}
+          </form>
+        </div>
+
+      </div>
+
+  </div>
+
+  <div class="container card p-3 mt-4">
+
+      <div class="row justify-content-center text-center mb-2">
+        <div class="col">
+          <h4>COMMENTS</h4>
+        </div>
+      </div>
+
+      <div class="row justify-content-center text-center mb-2">
+        <div class="col">
+          {{#if addToVisited}}
+            <p>If you want to leave a comment, please add this city to your already visited cities list.</p>
+          {{else}}
+          {{#if noComment}}
+            <p>You've already commented about this city. If you want to edit your comment, check your comments in your profile</p>
+          {{else}}
+          <a class="btn btn-outline-info" role="button" href="/create-comment/{{city}}">Add a comment</a>
+          {{/if}}
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="row justify-content-center">
+
+      {{#each comments}}
+      <div class="col col-md-12 col-lg-6 col-xl-6">
+        <div class="card m-2">
+          <div class="card-body">
+            <h5 class="card-title">{{this.commentTitle}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{this.name}} {{this.lastName}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Rating: <span class="comment-rating">{{this.rating}}</span> </h6>
+            <p class="card-text text-justify">{{this.comment}}</p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+
+      </div>
+
+
+
+
+
+
+  </div>
+  
+
+
+
+
 </div>
 
-<form action="/add-wish-city/{{city}}" method="POST">
-{{#if addToWish}}
-  <button id="wish-button">Wish to visit</button>
-{{else}}
-  <button id="wish-button">Remove from wish list</button>
-{{/if}}
-</form>
 
-<form action="/add-visited-city/{{city}}" method="POST">
-{{#if addToVisited}}
-  <button id="visited-button">Already visited</button>
-{{else}}
-  <button id="wish-button">Remove from already visited list</button>
-{{/if}}
-</form>
-
-<h2>Comments</h2>
-
-{{#each comments}}
-<h3>Title: {{this.commentTitle}}</h3>
-  <p>Comment: </p>
-  <p>{{this.comment}}</p>
-  <p>Rating: <span class="comment-rating">{{this.rating}}</span></p>
-  <p>Created by: {{this.name}} {{this.lastName}}</p>
-{{/each}}
-
-{{#if errorMessage}}
-  {{errorMessage}}
-{{/if}}
-
-{{#if addToVisited}}
-<p>Il you want to leave a comment, please add this city to your already visited cities list.</p>
-{{else}}
-<a href="/create-comment/{{city}}">Add a comment</a>
-{{/if}}

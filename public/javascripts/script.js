@@ -93,7 +93,7 @@ const charCounter = ()=>{
   let maxLength = textArea.getAttribute('maxlength')
   let charRemain = (0 + strLenght)
 
-  if(charRemain === maxLength) {
+  if(charRemain > maxLength) {
     textAreaSpan.innerHTML = "You've reached the max characters."
   } else {
     textAreaSpan.innerHTML = charRemain + `/${maxLength}` + " (min. 100 characters)"
