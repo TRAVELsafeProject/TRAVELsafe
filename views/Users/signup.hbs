@@ -1,37 +1,45 @@
 
-<h2>SIGNUP</h2>
+<div class="container">
 
+    <div class="row justify-content-center ">
+        <div class="col-12 col-md-6 col-lg-6 col-xl-4 text-center card p-4">
+            <div class="signup-title">
+                <h2>SIGNUP</h2>
+            </div>
 
-<form ction="/sign-up" method="POST">
+            <form action="/sign-up" method="POST">
 
-    <label for="name">Name: </label>
-    <input type="text" name="name" id="name">
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" placeholder="Name">
+                </div>
 
-    <br>
+                <div class="form-group">
+                    <label for="lastName"></label>
+                    <input type="text" name="lastName" id="lastName" placeholder="Last Name">
+                </div>
 
-    <label for="lastName">Last Name: </label>
-    <input type="text" name="lastName" id="lastName">
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" name="email" id="email" placeholder="Email">
+                </div>
 
-    <br>
+                <div class="form-group ">
+                    <label for="password"></label>
+                    <input type="password" name="password" id="password" placeholder="Password">
+                </div>
 
-    <label for="email">Email: </label>
-    <input type="email" name="email" id="email">
+                <div class="form-group">
+                    {{#if errorMessage}}
+                        <p class="error-message-login-signup">{{errorMessage}}</p>
+                    {{/if}}
+                </div>           
 
-    <br>
-
-    <label for="password">Password: </label>
-    <input type="password" name="password" id="password">
-
-    <br>
-
-    <h2>
-    {{#if errorMessage}}
-        <p>{{errorMessage}}</p>
-    {{/if}}
-    </h2>
+                <div>
+                    <button class="btn btn-outline-info">SIGN UP</button>
+                </div>
     
-    <br>
-
-    <button class="button is-primary">Sign up</button>
-    
-</form>
+            </form>
+        </div>
+    </div>
+</div>

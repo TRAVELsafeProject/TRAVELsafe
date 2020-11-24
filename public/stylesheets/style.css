@@ -1,6 +1,7 @@
 body {
   font-family: "Lucida Grande", Helvetica, Arial, sans-serif;
-  padding: 75px 0; }
+  padding: 75px 0;
+  height: 100%; }
 
 .travel-icon {
   height: 40px; }
@@ -8,15 +9,6 @@ body {
 .navbar {
   background-color: #17a2b8ff;
   margin-bottom: 10px; }
-
-.select-title {
-  margin-top: 30px;
-  font-weight: bold; }
-
-.form-control {
-  text-align-last: center;
-  margin-bottom: 30px;
-  margin-top: 30px; }
 
 footer {
   background-color: #e0e0e0; }
@@ -29,5 +21,17 @@ footer {
   font-size: .7rem;
   color: #17a2b8ff;
   text-decoration: underline; }
+
+.select-title {
+  margin-top: 30px;
+  font-weight: bold; }
+
+.form-control {
+  text-align-last: center;
+  margin-bottom: 30px;
+  margin-top: 30px; }
+
+.error-message-login-signup {
+  color: tomato; }
 
 /*# sourceMappingURL=style.css.map */
