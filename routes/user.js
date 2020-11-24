@@ -127,12 +127,12 @@ router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => 
             addToWish = true
           }
 
-          Comment.find({userID})
+          Comment.find({cityName: city, userID})
           .then((resultComment)=>{
-            const userComment = resultComment.userID
+            // const userComment = resultComment.userID
             let noComment = false
-            console.log(resultComment)
-            if(!userComment) {
+            // console.log(resultComment)
+            if(!resultComment) {
               noComment = false
             } else {
               noComment = true
