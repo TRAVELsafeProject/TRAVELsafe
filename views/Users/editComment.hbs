@@ -3,11 +3,18 @@
     <div class="container">
         <div class="col-12 col-md-8 col-lg-6 col-xl-6 card p-3 mt-5 mx-auto">
 
-        <div class="row text-center mb-5">
+        <div class="row text-center mb-2">
             <div class="col">
                 <h4 class="add-comment-city-title">EDIT YOUR COMMENT ABOUT {{result.cityName}}</h4>
             </div>
         </div>
+
+        <div class="row text-center mb-4">
+            <div class="col">
+                <a class="btn btn-sm btn-outline-info warning-button " role="button" href='/my-profile/my-comments'>BACK TO MY COMMENTS</a> 
+            </div>
+        </div>
+
 
         <form action="/my-profile/edit-comment/{{result.id}}" method="POST">
 

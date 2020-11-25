@@ -101,7 +101,6 @@ router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next
   .then((result)=>{
       res.render('Users/myProfile', {user: req.user, result})
   })
-
 })
 
 

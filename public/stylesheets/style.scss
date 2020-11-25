@@ -103,6 +103,12 @@ footer {
   text-transform: uppercase;
 }
 
+#my-comments-link {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 
 .module .comment-collapse.collapse:not(.show) {
   display: block;

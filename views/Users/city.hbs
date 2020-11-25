@@ -56,7 +56,7 @@
             <p>If you want to leave a comment, please add this city to your already visited cities list.</p>
           {{else}}
           {{#if noComment}}
-            <p>You've already commented about this city. If you want to edit your comment, check your comments in your profile</p>
+            <p>You've already commented about this city. If you want to edit your comment, check your <a id="my-comments-link"href="/my-profile/my-comments">comments</a> in your profile</p>
           {{else}}
           <a class="btn btn-outline-info" role="button" href="/create-comment/{{city}}">Add a comment</a>
           {{/if}}
