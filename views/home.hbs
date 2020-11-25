@@ -1,44 +1,112 @@
 
-<div>
+<div >
   
+  <div class="row">
     <div class="col mt-5">
       {{#if user}}
         <p>Welcome to Travel Safe, {{user.name}}</p>
       {{/if}}
     </div>
-
-
-  <div class="container">
-    <div clas="col">
-      <p class="text-justify">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-      </p>
-    </div>
-    
   </div>
 
-  <div class="containter text-center">
-    {{!-- <div class="col city-select "> --}}
+    <div class="containter text-center">
       <div class="row justify-content-center">
         <div class="col-12 col-md-12 col-lg-8 col-xl-6">
+
+          {{#if user}}
+
           <p class="select-title">PLEASE, SELECT THE CITY YOU WANT TO CHECK</p>
           <select class="form-control" id="cities-full-list">
-            <option selected >Select a city</option> 
+            <option selected disabled>Select a city</option> 
           </select>
           <button class="btn btn-outline-info" type="submit" id="get-city-button">TAKE ME THERE</button>
+
+          {{else}}
+
+            <div class="col card p-3 mb-3 border">
+              <p class="text-justify">Travel Safe has been created to help the LGBTQ+ community  get real information about the conditions they can find in their travel destinations thanks to the user comments about real experiences. For the moment, you can find the information about Spain’s most important cities, so you can be aware of what’s waiting for you and change your itinerary if needed.
+              </p>
+              <p>Hope to help you and enjoy Travel Safe!</p>
+            </div>
+
+          <p>IF YOU WANT TO CHECK THE INFO ABOUT THE SPANISH CITIES, PLEASE LOG IN</p>
+
+          {{/if}}
+
         </div>
       </div>
-
-    {{!-- </div> --}}
   </div>
 
 
 
-  
-  
+
+  <div class="container card p-2 mt-3">
+
+        <div class="row justify-content-center text-center mb-2 mt-2">
+          <div class="col">
+            <h4>SPAIN LGBTQ+ SITUATION</h4>
+          </div>
+        </div>
+
+        <div class="row justify-content-center">
+          
+              <div class="col-auto spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Marriage.png" alt="marriage">
+                </div>
+              </div>
+
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/WorkerProtections.png" alt="worker-protection">
+                </div>
+              </div>
+
+              <div class="col-auto spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Discrimination.png" alt="discrimiation">
+                </div>
+              </div>
+
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Violence.png" alt="violence">
+                </div>
+              </div>
+
+        </div>
+
+        <div class="row justify-content-center">
+          
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Adoption.png" alt="adoption">
+                </div>
+              </div>
+
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Live.png" alt="live">
+                </div>
+              </div>
+
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/DangerIndex.png" alt="danger-index">
+                </div>
+              </div>
+
+              <div class="col-auto  spain-info-card mb-2">
+                <div class="card text-center">
+                  <img class="card-img-top" src="/images/Qualification.png" alt="qualifitacion">
+                </div>
+              </div>
+
+        </div>
+
   </div>
+
+</div>
 
 
 

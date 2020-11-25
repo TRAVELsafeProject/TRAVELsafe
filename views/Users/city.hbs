@@ -21,9 +21,9 @@
         <div class="col-12 mt-3">
           <form action="/add-wish-city/{{city}}" method="POST">
             {{#if addToWish}}
-            <button class="btn btn-outline-info">Wish to visit</button>
+            <button class="btn btn-outline-info" type="submit">Wish to visit</button>
             {{else}}
-            <button class="btn btn-outline-danger">Remove from wish visit</button>
+            <button class="btn btn-outline-danger" type="submit">Remove from wish visit</button>
             {{/if}}
           </form>
         </div>
@@ -31,9 +31,9 @@
         <div class="col-12 mt-2">
           <form action="/add-visited-city/{{city}}" method="POST">
             {{#if addToVisited}}
-            <button class="btn btn-outline-info">Already visited</button>
+            <button class="btn btn-outline-info" type="submit">Already visited</button>
             {{else}}
-            <button class="btn btn-outline-danger">Remove from visited</button>
+            <button class="btn btn-outline-danger" type="submit">Remove from visited</button>
             {{/if}}
           </form>
         </div>
@@ -64,34 +64,39 @@
         </div>
       </div>
 
-      <div class="row justify-content-center">
+    <div class="row justify-content-center">
+
+      {{#if comments}}
 
       {{#each comments}}
+
       <div class="col col-md-12 col-lg-12 col-xl-12">
         <div class="card m-2">
           <div class="card-body module">
             <h5 class="card-title">{{this.commentTitle}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">{{this.name}} {{this.lastName}}</h6>
             <h6 class="card-subtitle mb-2 text-muted">Rating: <span class="comment-rating">{{this.rating}}</span> </h6>
-            <p class="card-text text-justify collapse comment-collapse" aria-expanded="false">{{this.comment}}</p>
-            <a role="button" class="collapsed" data-toggle="collapse" href=".comment-collapse" aria-expanded="false" aria-controls="comment-collapse"></a>
+            <p class="card-text text-justify collapse comment-collapse {{this.name}}" aria-expanded="false">{{this.comment}}</p>
+            <a role="button" class="collapsed" data-toggle="collapse" href=".{{this.name}}" aria-expanded="false" aria-controls="comment-collapse"></a>
           </div>
         </div>
       </div>
+
       {{/each}}
+
+      {{else}}
+      
+        <div class="col col-md-12 col-lg-12 col-xl-12 text-center">
+          <p>Nobody has added a comment about this city yet.</p>
+        </div>
+      
+      {{/if}}
 
     </div>
 
 
-
-
-
-
   </div>
   
-
-
-
 
 </div>
 

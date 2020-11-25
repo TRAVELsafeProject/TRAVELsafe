@@ -27,6 +27,10 @@ footer {
   margin-top: 30px;
   font-weight: bold; }
 
+.border {
+  border-width: 2px !important;
+  border-color: #17a2b8ff !important; }
+
 .form-control {
   text-align-last: center;
   margin-bottom: 30px;

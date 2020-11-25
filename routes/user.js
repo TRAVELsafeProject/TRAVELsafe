@@ -95,9 +95,13 @@ const checkAuth = (req, res, next) => {
 //RUTA GET DE PROFILE
 
 router.get('/my-profile', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => {
-  res.render('Users/myProfile', {
-    user: req.user
+  const userID = req.user._id
+
+  Comment.find({userID})
+  .then((result)=>{
+      res.render('Users/myProfile', {user: req.user, result})
   })
+
 })
 
 
