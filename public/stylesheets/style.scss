@@ -83,14 +83,14 @@ footer {
 }
 
 
-.module .collapseExample.collapse:not(.show) {
+.module .comment-collapse.collapse:not(.show) {
   display: block;
-  height: 3rem;
+  height: 1.5rem;
   overflow: hidden;
 }
 
 .module .comment-collapse.collapsing {
-  height: 3rem;
+  height: 1.5rem;
 }
 
 .module a.collapsed::after {
