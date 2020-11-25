@@ -113,3 +113,10 @@ footer {
   text-transform: uppercase;
 }
 
+//TEXT AREA COLOR
+
+textarea {
+  box-shadow: 0 1px 1px rgba($color: #17a2b8ff, $alpha: .5) inset, 0 0 8px rgba($color: #17a2b8ff, $alpha: .5);
+  outline: 0 none;
+}
+

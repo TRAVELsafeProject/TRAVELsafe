@@ -266,6 +266,9 @@ router.get('/create-comment/:city', checkAuth, (req, res, next) => {
         res.redirect(`/${city}`)
       }
     })
+    .catch((err) => {
+      res.send(err)
+    })
 })
 
 ////      RUTA POST
