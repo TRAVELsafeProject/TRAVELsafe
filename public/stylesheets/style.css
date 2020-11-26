@@ -73,6 +73,9 @@ footer {
 .add-comment-city-title {
   text-transform: uppercase; }
 
+.form-control {
+  text-align-last: left !important; }
+
 textarea {
   box-shadow: 0 1px 1px rgba(23, 162, 184, 0.5) inset, 0 0 8px rgba(23, 162, 184, 0.5);
   outline: 0 none; }

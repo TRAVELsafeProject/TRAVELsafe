@@ -140,6 +140,10 @@ footer {
   text-transform: uppercase;
 }
 
+.form-control {
+  text-align-last: left !important;
+}
+
 //TEXT AREA COLOR
 
 textarea {
@@ -147,3 +151,6 @@ textarea {
   outline: 0 none;
 }
 
+// .hidden-span-rating {
+//   display: ;
+// }

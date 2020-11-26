@@ -102,6 +102,41 @@ const charCounter = ()=>{
   console.log(maxLength)
 }
 
+//FUNCIÓN PARA VER EL RATING EN EL RADIO BUTTON DEL EDIT COMMENT
+
+const showRating = () => {
+  //Guardar SPAN con valor del previo rating
+  const previousRating = document.getElementById("rating-span")
+
+  //Guardar cada radio button
+
+  const radio1 = document.getElementById("value-1")
+  const radio2 = document.getElementById("value-2")
+  const radio3 = document.getElementById("value-3")
+  const radio4 = document.getElementById("value-4")
+  const radio5 = document.getElementById("value-5")
+
+  //Lógica para meterlo en el button que toca
+
+  if (radio1.value == previousRating.innerHTML) {
+    radio1.checked = true
+    console.log(radio1)
+  } else if (radio2.value == previousRating.innerHTML) {
+    console.log(radio2)
+    radio2.checked = true
+  } else if (radio3.value == previousRating.innerHTML) {
+    console.log(radio3)
+    radio3.checked = true
+  } else if (radio4.value == previousRating.innerHTML) {
+    console.log(radio4)
+    radio4.checked = true
+  } else if (radio5.value == previousRating.innerHTML) {
+    console.log(radio5)
+    radio5.checked = true
+  }
+  
+}
+
 
 // ELEMENTOS GUARDADOS DE DOM
 
@@ -130,5 +165,8 @@ window.addEventListener('keydown', () => {
   charCounter()
 })
 
+window.addEventListener('load', () => {
+  showRating()
+})
 
 
