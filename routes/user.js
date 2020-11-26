@@ -176,8 +176,10 @@ router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req,
                   alreadyVisited: visitedCities
                 })
                 .then(() => {
-                  return res.redirect(`/${city}`)
+                  res.redirect(`/${city}`)
                 })
+            } else {
+              res.redirect(`/${city}`)
             }
           })
       } else if (!wishVisitCities.includes(city)) {
@@ -193,8 +195,10 @@ router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req,
                   alreadyVisited: visitedCities
                 })
                 .then(() => {
-                  return res.redirect(`/${city}`)
+                  res.redirect(`/${city}`)
                 })
+            } else {
+              res.redirect(`/${city}`)
             }
           })
       }
@@ -232,8 +236,10 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
                   wishVisit: wishVisitCities
                 })
                 .then(() => {
-                  return res.redirect(`/${city}`)
+                  res.redirect(`/${city}`)
                 })
+            } else {
+              res.redirect(`/${city}`)
             }
           })
       } else if (!visitedCities.includes(city)) {
@@ -249,8 +255,10 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
                   wishVisit: wishVisitCities
                 })
                 .then(() => {
-                  return res.redirect(`/${city}`)
+                  res.redirect(`/${city}`)
                 })
+            } else {
+              res.redirect(`/${city}`)
             }
           })
       }
