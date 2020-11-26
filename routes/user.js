@@ -170,7 +170,15 @@ router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req,
             wishVisit: wishVisitCities
           })
           .then(() => {
-            res.redirect(`/${city}`)
+            if (visitedCities.includes(city)) {
+              visitedCities.splice(visitedCitiesIndex, 1)
+              User.findByIdAndUpdate(userID, {
+                  alreadyVisited: visitedCities
+                })
+                .then(() => {
+                  return res.redirect(`/${city}`)
+                })
+            }
           })
       } else if (!wishVisitCities.includes(city)) {
         User.findByIdAndUpdate(userID, {
@@ -179,19 +187,17 @@ router.post('/add-wish-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (req,
             }
           })
           .then(() => {
-            res.redirect(`/${city}`)
+            if (visitedCities.includes(city)) {
+              visitedCities.splice(visitedCitiesIndex, 1)
+              User.findByIdAndUpdate(userID, {
+                  alreadyVisited: visitedCities
+                })
+                .then(() => {
+                  return res.redirect(`/${city}`)
+                })
+            }
           })
       }
-      if (visitedCities.includes(city)) {
-        visitedCities.splice(visitedCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {
-            alreadyVisited: visitedCities
-          })
-          .then(() => {
-            res.redirect(`/${city}`)
-          })
-      }
-
 
     })
     .catch((err) => (err))
@@ -220,7 +226,15 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
             alreadyVisited: visitedCities
           })
           .then(() => {
-            res.redirect(`/${city}`)
+            if (wishVisitCities.includes(city)) {
+              wishVisitCities.splice(wishVisitCitiesIndex, 1)
+              User.findByIdAndUpdate(userID, {
+                  wishVisit: wishVisitCities
+                })
+                .then(() => {
+                  return res.redirect(`/${city}`)
+                })
+            }
           })
       } else if (!visitedCities.includes(city)) {
         User.findByIdAndUpdate(userID, {
@@ -229,19 +243,17 @@ router.post('/add-visited-city/:city', ensureLogin.ensureLoggedIn('/log-in'), (r
             }
           })
           .then(() => {
-            res.redirect(`/${city}`)
+            if (wishVisitCities.includes(city)) {
+              wishVisitCities.splice(wishVisitCitiesIndex, 1)
+              User.findByIdAndUpdate(userID, {
+                  wishVisit: wishVisitCities
+                })
+                .then(() => {
+                  return res.redirect(`/${city}`)
+                })
+            }
           })
       }
-      if (wishVisitCities.includes(city)) {
-        wishVisitCities.splice(wishVisitCitiesIndex, 1)
-        User.findByIdAndUpdate(userID, {
-            wishVisit: wishVisitCities
-          })
-          .then(() => {
-            res.redirect(`/${city}`)
-          })
-      }
-
 
     })
     .catch((err) => (err))
