@@ -52,7 +52,7 @@ footer {
   text-transform: uppercase; }
 
 #my-comments-link {
-  color: black;
+  color: #17a2b8ff;
   font-weight: bold;
   text-decoration: underline; }
 
@@ -69,6 +69,9 @@ footer {
 
 .module a:not(.collapsed)::after {
   content: 'Hide Comment'; }
+
+#city-link {
+  color: #17a2b8ff !important; }
 
 .add-comment-city-title {
   text-transform: uppercase; }

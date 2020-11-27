@@ -16,10 +16,12 @@
           {{#if user}}
 
           <p class="select-title">PLEASE, SELECT THE CITY YOU WANT TO CHECK</p>
+
           <select class="form-control" id="cities-full-list">
             <option selected disabled>Select a city</option> 
           </select>
           <button class="btn btn-outline-info" type="submit" id="get-city-button">TAKE ME THERE</button>
+
 
           {{else}}
 
@@ -122,7 +124,7 @@
 
   </div>
 
-  <div class="modal" id="marriage-info" tabindex="-1" role="dialog" aria-labelledby="marriage-window" aria-hidden="true">
+  <div class="modal" id="marriage-info" tabindex="-1" role="dialog" aria-labelledby="marriage-window" aria-hidden="true" >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -131,7 +133,7 @@
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
+        <div class="modal-body text-center">
             <img src="/images/captions/captionLegal.png"/>
             <img src="/images/captions/captionCivilUnion.png"/>
         </div>

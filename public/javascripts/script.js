@@ -15,7 +15,10 @@ const getCityList = () => {
           'X-Parse-REST-API-Key': 'rmUiExtQ0rJjOwm825bGnuBN1SfxZZjmirTmyIDv'
         }
       })
+
         .then((result) => {
+
+
           const cities = result.data.results
           
           const capitals = []
