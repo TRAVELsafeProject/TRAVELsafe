@@ -132,9 +132,7 @@ router.get('/:city', ensureLogin.ensureLoggedIn('/log-in'), (req, res, next) => 
 
           Comment.find({cityName: city, userID})
           .then((resultComment)=>{
-            // const userComment = resultComment.userID
             let noComment = false
-            // console.log(resultComment)
             if(!resultComment) {
               noComment = false
             } else {

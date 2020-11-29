@@ -115,6 +115,6 @@ const index = require('./routes/index');
 app.use('/', index);
 
 const user = require('./routes/user');
-app.use('/', user); //SI ESTO ESTÁ REQUERIDO ENCIMA DE LAS DEMÁS RUTAS, NO SE PODRÁ ACCEDER SIN HACER EL LOG IN?
+app.use('/', user); 
 
 module.exports = app;

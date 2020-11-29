@@ -3,8 +3,8 @@ const Schema = mongoose.Schema
 
 const commentSchema = new Schema(
     {
-      commentTitle: {type: String}, // Limitar un máximo de caracteres
-      comment: {type: String}, // Limitar un máximo de caracteres
+      commentTitle: {type: String}, 
+      comment: {type: String}, 
       rating: {type: Number},
       userID: {type: Schema.Types.ObjectId},
       name: {type: String},
