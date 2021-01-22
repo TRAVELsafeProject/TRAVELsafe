@@ -64,9 +64,7 @@ const getCityList = () => {
             
           });
         })
-        .catch((err) => {
-          res.send(err)
-        }) 
+        .catch((err) => (err))
 }
 
 //FUNCIÓN PARA MOSTRAR RATING DE CADA CIUDAD
@@ -92,9 +90,9 @@ const totalRating = () => {
 const charCounter = ()=>{
   const textAreaSpan = document.getElementById('textCounter')
   const textArea = document.getElementById('comment')
-  let strLenght = textArea.value.length
+  let strLength = textArea.value.length
   let maxLength = textArea.getAttribute('maxlength')
-  let charRemain = (0 + strLenght)
+  let charRemain = (0 + strLength)
 
   if(charRemain > maxLength) {
     textAreaSpan.innerHTML = "You've reached the max characters."
@@ -102,7 +100,7 @@ const charCounter = ()=>{
     textAreaSpan.innerHTML = charRemain + `/${maxLength}` + " (min. 100 characters)"
   }
 
-  console.log(maxLength)
+  console.log(charRemain)
 }
 
 //FUNCIÓN PARA VER EL RATING EN EL RADIO BUTTON DEL EDIT COMMENT

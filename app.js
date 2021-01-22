@@ -15,8 +15,6 @@ const session       = require('express-session')
 const flash         = require('connect-flash')
 
 const User = require('./models/User')
-const Comment = require('./models/Comment')
-const Country = require('./models/Country')
 
 const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.r7cqo.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`
 
