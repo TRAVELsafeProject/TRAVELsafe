@@ -1,25 +1,7 @@
 
 <div class="container">
 
-  <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Sign up to check all comments and ratings, add your own comments and create your lists. If you prefer, use this example account:</p>
-            <ul>
-              <li><b>Email:</b> andrea@travelsafe.com</li>
-              <li><b>Password:</b> travelsafe</li>              
-            </ul>
-        </div>
-      </div>
-    </div>
-  </div>
+
 
   <!-- MENSAJE DE BIENVENIDA SI EL USUARIO ESTÁ LOGUEADO -->
   
@@ -46,7 +28,6 @@
           </select>
           <button class="btn btn-outline-info" type="submit" id="get-city-button">TAKE ME THERE</button>
 
-
           {{else}}
 
           <!-- DESCRIPCIÓN TRAVELSAFE SI EL USUARIO NO ESTÁ LOGUEADO -->
@@ -59,11 +40,31 @@
 
           <p>IF YOU WANT TO CHECK THE INFO ABOUT THE SPANISH CITIES, PLEASE LOG IN</p>
 
-          {{/if}}
-
         </div>
       </div>
   </div>
+
+  <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Sign up to check all comments and ratings, add your own comments and create your lists. If you prefer, use this example account:</p>
+            <ul>
+              <li><b>Email:</b> andrea@travelsafe.com</li>
+              <li><b>Password:</b> travelsafe</li>              
+            </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {{/if}}
 
 
 
