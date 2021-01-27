@@ -138,7 +138,6 @@ const showRating = () => {
   
 }
 
-
 // ELEMENTOS GUARDADOS DE DOM
 
       // BOTONES
@@ -169,5 +168,3 @@ window.addEventListener('keydown', () => {
 window.addEventListener('load', () => {
   showRating()
 })
-
-
