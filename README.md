@@ -26,4 +26,4 @@ Sign up to check all comments and ratings, add your own comments and create your
 | Alba Cardona      | Jesus Rua         |
 |[![Foo](https://i.imgur.com/ZeIxWQK.png)](https://www.linkedin.com/in/albacardonajimenez/)|[![Foo](https://i.imgur.com/ZeIxWQK.png)](https://www.linkedin.com/in/jesusruapareja/)|
 |[![Foo](https://i.imgur.com/Zs3amzQ.png)](https://github.com/albacardona)|[![Foo](https://i.imgur.com/Zs3amzQ.png)](https://github.com/jesusrua)|
-|[![Foo](https://i.imgur.com/WBaaVUE.png)](mailto:alba.cardonajimenez@gmail.com)|[![Foo](https://i.imgur.com/WBaaVUE.png)](mailto:jesus.rua.pareja@gmail.com)|
+|[![Foo](https://i.imgur.com/02UUnJ3.png)](mailto:alba.cardonajimenez@gmail.com)|[![Foo](https://i.imgur.com/02UUnJ3.png)](mailto:jesus.rua.pareja@gmail.com)|
