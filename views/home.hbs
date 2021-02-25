@@ -1,5 +1,5 @@
 
-<div class="container">
+<div>
 
 
 
@@ -40,31 +40,32 @@
 
           <p>IF YOU WANT TO CHECK THE INFO ABOUT THE SPANISH CITIES, PLEASE LOG IN</p>
 
-        </div>
-      </div>
-  </div>
+          <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body text-left">
+                  <p>Sign up to check all comments and ratings, add your own comments and create your lists. If you prefer, use this example account:</p>
+                    <ul>
+                      <li><b>Email:</b> andrea@travelsafe.com</li>
+                      <li><b>Password:</b> travelsafe</li>              
+                    </ul>
+                </div>
+              </div>
+            </div>
+          </div>
 
-  <div class="modal fade" id="instructionsModal" tabindex="-1" role="dialog" aria-labelledby="instructionsModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="instructionsModalLabel">Instructions</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <p>Sign up to check all comments and ratings, add your own comments and create your lists. If you prefer, use this example account:</p>
-            <ul>
-              <li><b>Email:</b> andrea@travelsafe.com</li>
-              <li><b>Password:</b> travelsafe</li>              
-            </ul>
+          {{/if}}
         </div>
       </div>
     </div>
-  </div>
 
-  {{/if}}
+
 
 
 
@@ -84,7 +85,6 @@
         <!-- CARDS CON INFO LEGAL -->
 
         <div class="row justify-content-center">
-
 
               <div class="col-auto spain-info-card mb-2">
                 <a href="#" data-toggle="modal" data-target="#marriage-info"> 
@@ -299,7 +299,3 @@
 
 
 </div>
-
-
-
-
