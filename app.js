@@ -14,6 +14,8 @@ const localStrategy = require('passport-local').Strategy
 const session       = require('express-session')
 const flash         = require('connect-flash')
 
+const fetch = require('node-fetch');
+
 const User = require('./models/User')
 
 const url = `mongodb+srv://${process.env.USUARIO}:${process.env.PASSWORD}@cluster0.r7cqo.mongodb.net/${process.env.DBNAME}?retryWrites=true&w=majority`

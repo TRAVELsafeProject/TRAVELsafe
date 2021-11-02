@@ -1,0 +1,411 @@
+[{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c070"
+  },
+  "city": "Almería"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c071"
+  },
+  "city": "Cádiz"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c072"
+  },
+  "city": "Córdoba"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c073"
+  },
+  "city": "Granada"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c074"
+  },
+  "city": "Huelva"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c075"
+  },
+  "city": "Jaén"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c076"
+  },
+  "city": "Málaga"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c077"
+  },
+  "city": "Sevilla"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c078"
+  },
+  "city": "Jerez de la Frontera"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c079"
+  },
+  "city": "Marbella"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07a"
+  },
+  "city": "Dos Hermanas"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07b"
+  },
+  "city": "El Ejido"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07c"
+  },
+  "city": "San Fernando"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07d"
+  },
+  "city": "Huesca"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07e"
+  },
+  "city": "Teruel"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c07f"
+  },
+  "city": "Zaragoza"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c080"
+  },
+  "city": "Oviedo"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c081"
+  },
+  "city": "Gijón"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c082"
+  },
+  "city": "Avilés"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c083"
+  },
+  "city": "Las Palmas de Gran Canaria"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c084"
+  },
+  "city": "Fuerteventura"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c085"
+  },
+  "city": "Santa Cruz de Tenerife"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c086"
+  },
+  "city": "Santander"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c087"
+  },
+  "city": "Ávila"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c088"
+  },
+  "city": "Ponferrada"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c089"
+  },
+  "city": "Burgos"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08a"
+  },
+  "city": "León"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08b"
+  },
+  "city": "Palencia"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08c"
+  },
+  "city": "Salamanca"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08d"
+  },
+  "city": "Segovia"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08e"
+  },
+  "city": "Soria"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c08f"
+  },
+  "city": "Valladolid"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c090"
+  },
+  "city": "Zamora"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c091"
+  },
+  "city": "Albacete"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c092"
+  },
+  "city": "Talavera de la Reina"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c093"
+  },
+  "city": "Alcázar de San Juan"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c094"
+  },
+  "city": "Ciudad Real"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c095"
+  },
+  "city": "Cuenca"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c096"
+  },
+  "city": "Guadalajara"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c097"
+  },
+  "city": "Toledo"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c098"
+  },
+  "city": "Barcelona"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c099"
+  },
+  "city": "Sitges"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09a"
+  },
+  "city": "Salou"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09b"
+  },
+  "city": "Lloret de Mar"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09c"
+  },
+  "city": "Blanes"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09d"
+  },
+  "city": "Figueres"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09e"
+  },
+  "city": "Gerona"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c09f"
+  },
+  "city": "Lérida"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a0"
+  },
+  "city": "Tarragona"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a1"
+  },
+  "city": "Madrid"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a2"
+  },
+  "city": "Aranjuez"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a3"
+  },
+  "city": "El Escorial"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a4"
+  },
+  "city": "Alicante"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a5"
+  },
+  "city": "Benidorm"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a6"
+  },
+  "city": "Peñíscola"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a7"
+  },
+  "city": "Xàtiva"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a8"
+  },
+  "city": "Castellón de la Plana"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0a9"
+  },
+  "city": "Valencia"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0aa"
+  },
+  "city": "Badajoz"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0ab"
+  },
+  "city": "Mérida"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0ac"
+  },
+  "city": "Cáceres"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0ad"
+  },
+  "city": "La Coruña"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0ae"
+  },
+  "city": "Santiago de Compostela"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0af"
+  },
+  "city": "Vigo"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b0"
+  },
+  "city": "Lugo"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b1"
+  },
+  "city": "Orense"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b2"
+  },
+  "city": "Pontevedra"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b3"
+  },
+  "city": "Palma de Mallorca"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b4"
+  },
+  "city": "Ibiza"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b5"
+  },
+  "city": "Mahó"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b6"
+  },
+  "city": "Ciutadella"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b7"
+  },
+  "city": "Formentera"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b8"
+  },
+  "city": "Manacor"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0b9"
+  },
+  "city": "Alcúdia"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0ba"
+  },
+  "city": "Logroño"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0bb"
+  },
+  "city": "Calahorra"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0bc"
+  },
+  "city": "Pamplona"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0bd"
+  },
+  "city": "Vitoria"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0be"
+  },
+  "city": "San Sebastián"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0bf"
+  },
+  "city": "Bilbao"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0c0"
+  },
+  "city": "Murcia"
+},{
+  "_id": {
+    "$oid": "6042c617c4e52302faa8c0c1"
+  },
+  "city": "Cartagena"
+}]
